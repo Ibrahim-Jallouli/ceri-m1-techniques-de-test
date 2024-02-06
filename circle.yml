@@ -8,12 +8,6 @@ jobs:
     steps:
       - checkout  # Récupération du code source du repository
 
-      # Installation de Maven
-      - run:
-          name: Install Maven
-          command: |
-            sudo apt-get install -y maven
-
       # Exécution des tests unitaires avec Maven
       - run:
           name: Run Unit Tests
