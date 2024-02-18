@@ -35,6 +35,7 @@ public class IPokemonFactoryTest {
 
         Pokemon createdPokemon = pokemonFactory.createPokemon(index, cp, hp, dust, candy);
 
+        System.out.println(createdPokemon.equals(expectedPokemon));
         assertEquals(expectedPokemon, createdPokemon);
     }
 
