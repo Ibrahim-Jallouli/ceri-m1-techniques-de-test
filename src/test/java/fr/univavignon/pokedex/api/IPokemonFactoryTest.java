@@ -29,7 +29,7 @@ public class IPokemonFactoryTest {
         int dust = 100;
         int candy = 10;
 
-        Pokemon expectedPokemon = new Pokemon(index, null, 0, 0, 0, cp, hp, dust, candy, 0.0);
+        Pokemon expectedPokemon = new Pokemon(index, "", 0, 0, 0, cp, hp, dust, candy, 0.0);
 
         when(pokemonFactory.createPokemon(index, cp, hp, dust, candy)).thenReturn(expectedPokemon);
 
