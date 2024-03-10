@@ -31,7 +31,8 @@ jobs:
       - checkout
 
       - codecov/upload:
-          token: $CODECOV_TOKEN
+          token: CODECOV_TOKEN
+
 
 workflows:
   version: 2
