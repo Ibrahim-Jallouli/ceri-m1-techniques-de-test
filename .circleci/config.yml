@@ -23,6 +23,13 @@ jobs:
           name: Generate JaCoCo Coverage Report
           command: mvn jacoco:report
 
+  upload-to-codecov:
+    steps:
+      - checkout
+
+      - codecov/upload:
+          token: $CODECOV_TOKEN
+
 workflows:
   version: 2
   build:
@@ -31,6 +38,6 @@ workflows:
           filters:
             branches:
               only: master
-  upload-to-codecov:
-    jobs:
-      - codecov/upload
+      - upload-to-codecov:
+          requires:
+            - build
