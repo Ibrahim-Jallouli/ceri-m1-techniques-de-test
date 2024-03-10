@@ -19,6 +19,10 @@ jobs:
         java-version: '11'
         distribution: 'adopt'
 
+
+    - name: Build with Maven
+      run: mvn -B package --file pom.xml
+
     - name: Run tests and generate JaCoCo report
       run: mvn test jacoco:report
 
