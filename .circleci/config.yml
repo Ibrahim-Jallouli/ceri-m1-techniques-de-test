@@ -1,7 +1,7 @@
 version: 2.1
 
 orbs:
-  codecov: codecov/codecov@4.0.1  # Define the codecov orb
+  codecov: codecov/codecov@4.0.1
 
 jobs:
   build:
@@ -23,9 +23,6 @@ jobs:
           name: Generate JaCoCo Coverage Report  # Generate JaCoCo coverage report
           command: mvn jacoco:report
 
-      - codecov/upload:  # Upload coverage reports to Codecov
-          token: << parameters.CODECOV_TOKEN >>
-
 workflows:
   version: 2
   build:
@@ -34,3 +31,7 @@ workflows:
           filters:
             branches:
               only: master
+  upload-to-codecov:
+    jobs:
+      - checkout
+      - codecov/upload
