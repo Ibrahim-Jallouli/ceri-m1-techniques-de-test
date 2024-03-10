@@ -1,20 +1,22 @@
 package fr.univavignon.pokedex.api;
 
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
-import org.mockito.junit.jupiter.MockitoExtension;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.ArgumentMatchers.anyInt;
 import static org.mockito.Mockito.when;
+import org.mockito.MockitoAnnotations;
 
-@ExtendWith(MockitoExtension.class)
 public class IPokemonFactoryTest {
 
     @Mock
     IPokemonFactory pokemonFactory;
+
+    public IPokemonFactoryTest() {
+        MockitoAnnotations.openMocks(this);
+    }
 
     @Test
     public void testCreatePokemon() {
@@ -49,6 +51,4 @@ public class IPokemonFactoryTest {
         assertThrows(IndexOutOfBoundsException.class, () -> pokemonFactory.createPokemon(-2, cp, hp, dust, candy));
         assertThrows(IndexOutOfBoundsException.class, () -> pokemonFactory.createPokemon(151, cp, hp, dust, candy));
     }
-
-
 }
