@@ -24,6 +24,9 @@ jobs:
           command: mvn jacoco:report
 
   upload-to-codecov:
+    docker:
+      - image: cimg/openjdk:21.0.2
+
     steps:
       - checkout
 
