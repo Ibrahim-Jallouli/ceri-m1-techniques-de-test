@@ -24,7 +24,7 @@ jobs:
           command: mvn jacoco:report
 
       - codecov/upload:  # Upload coverage reports to Codecov
-          token: $CODECOV_TOKEN
+          token: << parameters.CODECOV_TOKEN >>
 
 workflows:
   version: 2
