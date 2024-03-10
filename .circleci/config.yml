@@ -37,3 +37,4 @@ workflows:
 
 
 #update security to allow using uncertified orbs
+# add environment variable CODECOV_TOKEN to the project settings in CircleCI
