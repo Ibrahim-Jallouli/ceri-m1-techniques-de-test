@@ -24,7 +24,7 @@ jobs:
           command: mvn jacoco:report
 
       - codecov/upload:  # Upload coverage reports to Codecov
-          token: ${{ secrets.CODECOV_TOKEN }}
+          token: $CODECOV_TOKEN
 
 workflows:
   version: 2
@@ -34,7 +34,3 @@ workflows:
           filters:
             branches:
               only: master
-
-
-#update security to allow using uncertified orbs
-# add environment variable CODECOV_TOKEN to the project settings in CircleCI
