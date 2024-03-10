@@ -9,18 +9,18 @@ jobs:
       - image: cimg/openjdk:21.0.2
 
     steps:
-      - checkout  # Checkout source code from the repository
+      - checkout
 
       - run:
-          name: Install Dependencies  # Install Maven dependencies
+          name: Install Dependencies
           command: mvn dependency:go-offline
 
       - run:
-          name: Build and Test  # Build and run tests
+          name: Build and Test
           command: mvn test
 
       - run:
-          name: Generate JaCoCo Coverage Report  # Generate JaCoCo coverage report
+          name: Generate JaCoCo Coverage Report
           command: mvn jacoco:report
 
 workflows:
@@ -33,5 +33,4 @@ workflows:
               only: master
   upload-to-codecov:
     jobs:
-      - checkout
       - codecov/upload
