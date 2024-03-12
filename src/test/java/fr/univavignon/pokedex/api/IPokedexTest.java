@@ -45,6 +45,7 @@ public class IPokedexTest {
 
     @Test
     public void testAddPokemon() {
+        pokedex = mock(IPokedex.class);
         Pokemon pokemon = new Pokemon(1, "AAA", 0, 0, 0, 0, 0, 0, 0, 0.5);
         when(pokedex.addPokemon(pokemon)).thenReturn(1);
         int result = pokedex.addPokemon(pokemon);
@@ -53,6 +54,7 @@ public class IPokedexTest {
 
     @Test
     void getPokemon() throws PokedexException {
+        pokedex = mock(IPokedex.class);
         Pokemon pokemon = new Pokemon(1, "AAA", 0, 0, 0, 0, 0, 0, 0, 0.5);
         when(pokedex.getPokemon(1)).thenReturn(pokemon);
         Pokemon createdPokemon = pokedex.getPokemon(1);
@@ -61,6 +63,7 @@ public class IPokedexTest {
 
     @Test
     void getPokemons() {
+        pokedex = mock(IPokedex.class);
         List<Pokemon> pokemons = new ArrayList<>();
         pokemons.add(new Pokemon(1, "AAA", 0, 0, 0, 0, 0, 0, 0, 0.5));
         pokemons.add(new Pokemon(2, "BBB", 0, 0, 0, 0, 0, 0, 0, 1.0));
@@ -71,6 +74,7 @@ public class IPokedexTest {
 
     @Test
     void testGetPokemonsSortedByIndex() {
+        pokedex = mock(IPokedex.class);
         List<Pokemon> pokemons = new ArrayList<>();
         pokemons.add(new Pokemon(2, "BBB", 0, 0, 0, 0, 0, 0, 0, 1.0));
         pokemons.add(new Pokemon(1, "AAA", 0, 0, 0, 0, 0, 0, 0, 0.5));

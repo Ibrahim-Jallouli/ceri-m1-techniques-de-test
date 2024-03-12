@@ -27,7 +27,13 @@ public class IPokedexFactoryTest {
     }
 
     @Test
+
     void testCreatePokedex() throws PokedexException {
+        pokedexFactory = mock(IPokedexFactory.class);
+        pokemonMetadataProvider = mock(IPokemonMetadataProvider.class);
+        pokemonFactory = mock(IPokemonFactory.class);
+        pokedex = mock(IPokedex.class);
+        when(pokedexFactory.createPokedex(pokemonMetadataProvider, pokemonFactory)).thenReturn(pokedex);
         // Call the method to create a Pokedex
         IPokedex createdPokedex = pokedexFactory.createPokedex(pokemonMetadataProvider, pokemonFactory);
 
