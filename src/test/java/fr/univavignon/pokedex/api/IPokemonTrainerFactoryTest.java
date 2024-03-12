@@ -29,4 +29,20 @@ public class IPokemonTrainerFactoryTest {
         assertEquals(pokedexMock, createdTrainer.getPokedex());
         verify(trainerFactory).createTrainer(name, team, pokedexFactory);
     }
+    @Test
+    public void testPokemonTrainerGetters() {
+        // Définir les données de test
+        String name = "Ash";
+        Team team = Team.VALOR;
+        IPokedex pokedexMock = mock(IPokedex.class);
+
+        // Créer une instance de PokemonTrainer
+        PokemonTrainer trainer = new PokemonTrainer(name, team, pokedexMock);
+
+        // Tester les getters
+        assertEquals(name, trainer.getName());
+        assertEquals(team, trainer.getTeam());
+        assertEquals(pokedexMock, trainer.getPokedex());
+    }
+
 }
