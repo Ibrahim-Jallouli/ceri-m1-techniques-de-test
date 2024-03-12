@@ -1,47 +1,37 @@
 version: 2.1
 
 orbs:
-  codecov: codecov/codecov@4.0.1
+  codecov: codecov/codecov@1.0.5
 
 jobs:
-  build:
+  build-and-upload:
     docker:
       - image: cimg/openjdk:21.0.2
 
     steps:
       - checkout
 
+      # Install Maven dependencies
       - run:
           name: Install Dependencies
-          command: mvn dependency:go-offline
+          command: mvn dependency:resolve -B
 
+      # Build and run tests
       - run:
           name: Build and Test
-          command: mvn test
+          command: |
+            mvn clean verify
+            mvn jacoco:report
 
-      - run:
-          name: Generate JaCoCo Coverage Report
-          command: mvn jacoco:report
-
-  upload-to-codecov:
-    docker:
-      - image: cimg/openjdk:21.0.2
-
-    steps:
-      - checkout
-
+      # Upload coverage report to Codecov
       - codecov/upload:
-          token: CODECOV_TOKEN
-
+          token: $CODECOV_TOKEN
 
 workflows:
   version: 2
-  build:
+  build-and-upload:
     jobs:
-      - build:
+      - build-and-upload:
           filters:
             branches:
               only: master
-      - upload-to-codecov:
-          requires:
-            - build
