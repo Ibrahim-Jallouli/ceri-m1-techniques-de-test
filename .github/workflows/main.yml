@@ -26,6 +26,9 @@ jobs:
         key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
         restore-keys: |
           ${{ runner.os }}-maven-
+          
+    - name: Print Dependencies
+      run: mvn dependency:list -DincludeScope=test
 
     - name: Install dependencies and build with Maven
       run: mvn -B install --file pom.xml
