@@ -51,4 +51,33 @@ public class IPokemonFactoryTest {
         assertThrows(IndexOutOfBoundsException.class, () -> pokemonFactory.createPokemon(-2, cp, hp, dust, candy));
         assertThrows(IndexOutOfBoundsException.class, () -> pokemonFactory.createPokemon(151, cp, hp, dust, candy));
     }
+
+    @Test
+    public void testPokemonGetters() {
+        int index = 1;
+        String name = "Bulbasaur";
+        int attack = 126;
+        int defense = 126;
+        int stamina = 90;
+        int cp = 100;
+        int hp = 50;
+        int dust = 100;
+        int candy = 10;
+        double iv = 0.5; // Assuming a 50% IV
+
+        // Create a Pokemon instance
+        Pokemon pokemon = new Pokemon(index, name, attack, defense, stamina, cp, hp, dust, candy, iv);
+
+        // Test the getters
+        assertEquals(index, pokemon.getIndex());
+        assertEquals(name, pokemon.getName());
+        assertEquals(attack, pokemon.getAttack());
+        assertEquals(defense, pokemon.getDefense());
+        assertEquals(stamina, pokemon.getStamina());
+        assertEquals(cp, pokemon.getCp());
+        assertEquals(hp, pokemon.getHp());
+        assertEquals(dust, pokemon.getDust());
+        assertEquals(candy, pokemon.getCandy());
+        assertEquals(iv, pokemon.getIv());
+    }
 }
