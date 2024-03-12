@@ -63,12 +63,10 @@ public class IPokemonFactoryTest {
         int hp = 50;
         int dust = 100;
         int candy = 10;
-        double iv = 0.5; // Assuming a 50% IV
+        double iv = 0.5;
 
-        // Create a Pokemon instance
+
         Pokemon pokemon = new Pokemon(index, name, attack, defense, stamina, cp, hp, dust, candy, iv);
-
-        // Test the getters
         assertEquals(index, pokemon.getIndex());
         assertEquals(name, pokemon.getName());
         assertEquals(attack, pokemon.getAttack());
