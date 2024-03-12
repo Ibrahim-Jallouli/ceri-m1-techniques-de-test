@@ -23,11 +23,14 @@ public class IPokedexTest {
 
     @Test
     public void testSize() {
+        pokedex = mock(IPokedex.class);
         List<Pokemon> pokemons = new ArrayList<>();
         pokemons.add(new Pokemon(1, "AAA", 0, 0, 0, 0, 0, 0, 0, 0.5));
         pokemons.add(new Pokemon(2, "BBB", 0, 0, 0, 0, 0, 0, 0, 1.0));
 
+        System.out.println(pokedex.size());
         when(pokedex.size()).thenReturn(pokemons.size());
+        System.out.println(pokedex.size());
 
         // Call the tested method
         int size = pokedex.size();
@@ -38,6 +41,7 @@ public class IPokedexTest {
         when(pokedex.size()).thenReturn(emptyPokemons.size());
         assertEquals(0, pokedex.size());
     }
+
 
     @Test
     public void testAddPokemon() {
