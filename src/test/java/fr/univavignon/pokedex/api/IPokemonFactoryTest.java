@@ -1,22 +1,19 @@
 package fr.univavignon.pokedex.api;
 
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.ArgumentMatchers.anyInt;
 import static org.mockito.Mockito.when;
-import org.mockito.MockitoAnnotations;
+import org.mockito.junit.jupiter.MockitoExtension;
 
+@ExtendWith(MockitoExtension.class)
 public class IPokemonFactoryTest {
-
     @Mock
     IPokemonFactory pokemonFactory;
-
-    public IPokemonFactoryTest() {
-        MockitoAnnotations.openMocks(this);
-    }
 
     @Test
     public void testCreatePokemon() {
@@ -26,16 +23,12 @@ public class IPokemonFactoryTest {
         int dust = 100;
         int candy = 10;
 
-        // Création du Pokémon attendu
         Pokemon expectedPokemon = new Pokemon(index, "", 0, 0, 0, cp, hp, dust, candy, 0.0);
 
-        // Configuration du mock pour retourner le Pokémon attendu
         when(pokemonFactory.createPokemon(index, cp, hp, dust, candy)).thenReturn(expectedPokemon);
 
-        // Appel de la méthode à tester
         Pokemon createdPokemon = pokemonFactory.createPokemon(index, cp, hp, dust, candy);
 
-        // Vérification que le Pokémon retourné par la méthode est le même que le Pokémon attendu
         assertEquals(expectedPokemon, createdPokemon);
 
         when(pokemonFactory.createPokemon(anyInt(), anyInt(), anyInt(), anyInt(), anyInt()))

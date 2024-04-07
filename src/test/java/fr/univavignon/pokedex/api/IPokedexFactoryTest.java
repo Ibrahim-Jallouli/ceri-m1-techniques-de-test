@@ -1,42 +1,28 @@
 package fr.univavignon.pokedex.api;
 
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.junit.jupiter.MockitoExtension;
 import static org.mockito.Mockito.*;
+import static org.junit.jupiter.api.Assertions.*;
 
+@ExtendWith(MockitoExtension.class)
 public class IPokedexFactoryTest {
 
-    private IPokedexFactory pokedexFactory;
-    private IPokemonMetadataProvider pokemonMetadataProvider;
-    private IPokemonFactory pokemonFactory;
-    private IPokedex pokedex;
-
-    @BeforeEach
-    void setUp() {
-        // Initialize the mocks
-        pokedexFactory = mock(IPokedexFactory.class);
-        pokemonMetadataProvider = mock(IPokemonMetadataProvider.class);
-        pokemonFactory = mock(IPokemonFactory.class);
-        pokedex = mock(IPokedex.class);
-
-        // Configure the behavior of the mock IPokedexFactory
-        when(pokedexFactory.createPokedex(pokemonMetadataProvider, pokemonFactory)).thenReturn(pokedex);
-    }
-
     @Test
+    public void testCreatePokedex() {
+        // Creation des mocks
+        IPokemonMetadataProvider metadataProvider = mock(IPokemonMetadataProvider.class);
+        IPokemonFactory pokemonFactory = mock(IPokemonFactory.class);
+        IPokedex pokedex = mock(IPokedex.class);
 
-    void testCreatePokedex() throws PokedexException {
-        pokedexFactory = mock(IPokedexFactory.class);
-        pokemonMetadataProvider = mock(IPokemonMetadataProvider.class);
-        pokemonFactory = mock(IPokemonFactory.class);
-        pokedex = mock(IPokedex.class);
-        when(pokedexFactory.createPokedex(pokemonMetadataProvider, pokemonFactory)).thenReturn(pokedex);
-        // Call the method to create a Pokedex
-        IPokedex createdPokedex = pokedexFactory.createPokedex(pokemonMetadataProvider, pokemonFactory);
+        IPokedexFactory pokedexFactory = mock(IPokedexFactory.class);
 
-        // Verify that the created Pokedex is the same as the one returned by the mock
-        assertEquals(pokedex, createdPokedex);
+        when(pokedexFactory.createPokedex(metadataProvider, pokemonFactory)).thenReturn(pokedex);
+
+        IPokedex createdPokedex = pokedexFactory.createPokedex(metadataProvider, pokemonFactory);
+
+        assertNotNull(createdPokedex, "La création du Pokedex n'aurait pas dû échouer");
+        assertEquals(pokedex, createdPokedex, "Le Pokedex créé devrait être celui qui est mocké");
     }
 }

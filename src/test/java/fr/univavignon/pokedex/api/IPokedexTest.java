@@ -1,8 +1,9 @@
 package fr.univavignon.pokedex.api;
 
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.Mock;
+import org.mockito.junit.jupiter.MockitoExtension;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -12,40 +13,31 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.Mockito.*;
 
+@ExtendWith(MockitoExtension.class) // Utilise MockitoExtension pour gérer les mocks
 public class IPokedexTest {
 
+    // Utilisez @Mock pour initialiser automatiquement les mocks
+    @Mock
     private IPokedex pokedex;
-
-    @BeforeEach
-    public void setUp() {
-        pokedex = mock(IPokedex.class);
-    }
 
     @Test
     public void testSize() {
-        pokedex = mock(IPokedex.class);
         List<Pokemon> pokemons = new ArrayList<>();
         pokemons.add(new Pokemon(1, "AAA", 0, 0, 0, 0, 0, 0, 0, 0.5));
         pokemons.add(new Pokemon(2, "BBB", 0, 0, 0, 0, 0, 0, 0, 1.0));
 
-        System.out.println(pokedex.size());
         when(pokedex.size()).thenReturn(pokemons.size());
-        System.out.println(pokedex.size());
 
-        // Call the tested method
         int size = pokedex.size();
         assertEquals(pokemons.size(), size);
 
-        // Test the case when the Pokédex is empty
         List<Pokemon> emptyPokemons = Collections.emptyList();
         when(pokedex.size()).thenReturn(emptyPokemons.size());
         assertEquals(0, pokedex.size());
     }
 
-
     @Test
     public void testAddPokemon() {
-        pokedex = mock(IPokedex.class);
         Pokemon pokemon = new Pokemon(1, "AAA", 0, 0, 0, 0, 0, 0, 0, 0.5);
         when(pokedex.addPokemon(pokemon)).thenReturn(1);
         int result = pokedex.addPokemon(pokemon);
@@ -54,7 +46,6 @@ public class IPokedexTest {
 
     @Test
     void getPokemon() throws PokedexException {
-        pokedex = mock(IPokedex.class);
         Pokemon pokemon = new Pokemon(1, "AAA", 0, 0, 0, 0, 0, 0, 0, 0.5);
         when(pokedex.getPokemon(1)).thenReturn(pokemon);
         Pokemon createdPokemon = pokedex.getPokemon(1);
@@ -63,7 +54,6 @@ public class IPokedexTest {
 
     @Test
     void getPokemons() {
-        pokedex = mock(IPokedex.class);
         List<Pokemon> pokemons = new ArrayList<>();
         pokemons.add(new Pokemon(1, "AAA", 0, 0, 0, 0, 0, 0, 0, 0.5));
         pokemons.add(new Pokemon(2, "BBB", 0, 0, 0, 0, 0, 0, 0, 1.0));
@@ -74,13 +64,11 @@ public class IPokedexTest {
 
     @Test
     void testGetPokemonsSortedByIndex() {
-        pokedex = mock(IPokedex.class);
         List<Pokemon> pokemons = new ArrayList<>();
         pokemons.add(new Pokemon(2, "BBB", 0, 0, 0, 0, 0, 0, 0, 1.0));
         pokemons.add(new Pokemon(1, "AAA", 0, 0, 0, 0, 0, 0, 0, 0.5));
         pokemons.add(new Pokemon(3, "CCC", 0, 0, 0, 0, 0, 0, 0, 1.5));
 
-        // Mock pokedex.getPokemons() with INDEX comparator
         when(pokedex.getPokemons(PokemonComparators.INDEX)).thenAnswer(invocation -> {
             Comparator<Pokemon> comparator = invocation.getArgument(0);
             List<Pokemon> sortedPokemons = new ArrayList<>(pokemons);

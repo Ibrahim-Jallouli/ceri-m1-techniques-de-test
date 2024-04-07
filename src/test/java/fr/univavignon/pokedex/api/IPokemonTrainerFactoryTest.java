@@ -1,18 +1,26 @@
 package fr.univavignon.pokedex.api;
 
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.Mock;
+import org.mockito.junit.jupiter.MockitoExtension;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.*;
 
+@ExtendWith(MockitoExtension.class)
 public class IPokemonTrainerFactoryTest {
+
+    @Mock
+    private IPokemonTrainerFactory trainerFactory;
+
+    @Mock
+    private IPokedexFactory pokedexFactory;
+    @Mock
+    private IPokedex pokedexMock;
 
     @Test
     void testCreateTrainer() {
-        IPokemonTrainerFactory trainerFactory = mock(IPokemonTrainerFactory.class);
-        IPokedexFactory pokedexFactory = mock(IPokedexFactory.class);
-        IPokedex pokedexMock = mock(IPokedex.class);
-
         String name = "Darius";
         Team team = Team.MYSTIC;
 
@@ -24,16 +32,16 @@ public class IPokemonTrainerFactoryTest {
         assertEquals(pokedexMock, createdTrainer.getPokedex());
         verify(trainerFactory).createTrainer(name, team, pokedexFactory);
     }
+
     @Test
     public void testPokemonTrainerGetters() {
         String name = "Ash";
         Team team = Team.VALOR;
-        IPokedex pokedexMock = mock(IPokedex.class);
 
         PokemonTrainer trainer = new PokemonTrainer(name, team, pokedexMock);
+
         assertEquals(name, trainer.getName());
         assertEquals(team, trainer.getTeam());
         assertEquals(pokedexMock, trainer.getPokedex());
     }
-
 }
