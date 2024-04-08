@@ -39,7 +39,7 @@ jobs:
           name: Deploy to GitHub Pages
           command: |
             git config --global user.email "ibrahim.jallouli@alumni.univ-avignon.fr"
-            git config --global user.name "Ibrahim-Jallouli
+            git config --global user.name "Ibrahim-Jallouli"
             git clone https://github.com/Ibrahim-Jallouli/ceri-m1-techniques-de-test.git repo
             cd repo
             git checkout gh-pages || git checkout --orphan gh-pages
