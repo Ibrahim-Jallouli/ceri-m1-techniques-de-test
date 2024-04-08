@@ -5,11 +5,12 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
-
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
-import static org.mockito.Mockito.when;
 
 
 /**
@@ -59,9 +60,22 @@ public class IPokedexTest {
 
     @Test
     void getPokemon() throws PokedexException {
+        // Création de l'instance de Pokemon
+        Pokemon expectedPokemon = new Pokemon(1, "AAA", 0, 0, 0, 0, 0, 0, 0, 0.5);
 
-        assertEquals(1,1); // Utilisez assertEquals pour comparer les objets Pokemon.
+        // Ajout du Pokemon au Pokedex
+        int pokemonId = pokedex.addPokemon(expectedPokemon); // Assurez-vous que cette méthode retourne l'ID du Pokémon ajouté
+
+        // Récupération du Pokemon par son ID
+        Pokemon retrievedPokemon = pokedex.getPokemon(pokemonId);
+
+        // Vérification que le Pokemon récupéré correspond à celui attendu
+        assertNotNull(retrievedPokemon, "Le Pokémon récupéré ne devrait pas être null.");
+        assertEquals(expectedPokemon.getIndex(), retrievedPokemon.getIndex(), "Les indices des Pokémon devraient correspondre.");
+        assertEquals(expectedPokemon.getName(), retrievedPokemon.getName(), "Les noms des Pokémon devraient correspondre.");
+        // Continuez avec d'autres assertions si nécessaire
     }
+
 
 
     @Test
