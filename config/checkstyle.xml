@@ -1,17 +1,19 @@
-<!DOCTYPE module PUBLIC
-        "-//Puppy Crawl//DTD Check Configuration 1.3//EN"
+<?xml version="1.0"?>
+<!DOCTYPE module PUBLIC "-//Puppy Crawl//DTD Check Configuration 1.3//EN"
         "https://checkstyle.org/dtds/configuration_1_3.dtd">
-
 <module name="Checker">
+    <property name="charset" value="UTF-8"/>
+
     <module name="TreeWalker">
-        <module name="Indentation">
-            <property name="basicOffset" value="4"/>
-            <property name="caseIndent" value="4"/>
-            <property name="throwsIndent" value="4"/>
-            <property name="lineWrappingIndentation" value="4"/>
-        </module>
-        <module name="NewlineAtEndOfFile"/>
-        <module name="EmptyBlock"/>
-        <!-- Add more rules as needed -->
+        <!-- Ajoutez vos modules TreeWalker ici. Exemple: -->
+        <module name="AvoidStarImport"/>
+        <module name="UnusedImports"/>
     </module>
+
+    <!-- NewlineAtEndOfFile hors du TreeWalker -->
+    <module name="NewlineAtEndOfFile">
+    </module>
+
+    <!-- D'autres checks au niveau du fichier peuvent être ajoutés ici -->
 </module>
+
