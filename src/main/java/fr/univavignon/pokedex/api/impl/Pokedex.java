@@ -8,6 +8,7 @@ import fr.univavignon.pokedex.api.PokemonMetadata;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
+import java.util.concurrent.atomic.AtomicInteger;
 
 
 /**
@@ -18,7 +19,7 @@ import java.util.List;
 public class Pokedex implements IPokedex {
 
     private  List<Pokemon> pokemons = new ArrayList<>();
-    private  Integer indexGenerator =0 ;
+    private final AtomicInteger indexGenerator = new AtomicInteger(0);
     private IPokemonMetadataProvider metadataProvider;
     private IPokemonFactory pokemonFactory;
 
@@ -34,7 +35,7 @@ public class Pokedex implements IPokedex {
 
     @Override
     public int addPokemon(Pokemon pokemon) {
-        int index = indexGenerator++;
+        int index = indexGenerator.getAndIncrement();
         pokemons.add(pokemon);
         return index;
     }
