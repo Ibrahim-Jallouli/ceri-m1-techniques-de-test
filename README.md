@@ -4,6 +4,9 @@
 ## Codecov badge
 [![codecov](https://codecov.io/gh/Ibrahim-Jallouli/ceri-m1-techniques-de-test/graph/badge.svg?token=99T2G064EK)](https://codecov.io/gh/Ibrahim-Jallouli/ceri-m1-techniques-de-test)
 
+## CheckStyle badge
+![Checkstyle](https://img.shields.io/badge/checkstyle-8.44-brightgreen.svg)
+
 
 
 notes: 
