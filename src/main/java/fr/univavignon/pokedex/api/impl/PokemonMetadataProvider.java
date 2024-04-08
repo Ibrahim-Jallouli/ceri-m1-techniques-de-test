@@ -5,7 +5,6 @@ import fr.univavignon.pokedex.api.PokemonMetadata;
 
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Objects;
 
 /**
  * Fournit les métadonnées des Pokémon en implémentant l'interface {@link IPokemonMetadataProvider}.
