@@ -9,5 +9,5 @@
 notes: 
 - j'ai utilisé junit5 pour les tests car il est plus récent et plus performant que junit4 (juint4 > 15 ans)
 - Après avoir clarifié les différences entre CircleCI et GitHub Actions, j'ai refait tout le TP et ai correctement configuré CircleCI et Codecov.
-- j'ai utilisé CircleCI pour la CI/CD et Codecov pour la couverture de test. j'ai ajouté les testes pour les getters pour avoir une couverture de 100%.
+- j'ai utilisé CircleCI pour la CI/CD et Codecov pour la couverture de test. j'ai ajouté les testes pour les getters pour avoir une couverture de 100% pour les classes existantes. J'ai pas implementer des tests pour /impl car c'est juste une implémentation des interfaces qui sont déjà testées.
 - Pour l'implémentation des interfaces, j'ai essayé de suivre les méthodes définies dans les interfaces. Pour bien comprendre le code, j'ai créé une classe principale (Main) pour tester et instancier des objets concrets afin de vérifier les différentes fonctionnalités.
