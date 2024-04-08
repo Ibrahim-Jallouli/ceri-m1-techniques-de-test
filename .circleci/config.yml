@@ -28,7 +28,7 @@ jobs:
           name: Run Checkstyle
           command: |
             wget https://github.com/checkstyle/checkstyle/releases/download/checkstyle-8.44/checkstyle-8.44-all.jar
-            java -jar checkstyle-8.44-all.jar -c checkstyle.xml src/
+            java -jar checkstyle-8.44-all.jar -c ./config/checkstyle.xml src/
 
       # Upload coverage report to Codecov
       - codecov/upload:
