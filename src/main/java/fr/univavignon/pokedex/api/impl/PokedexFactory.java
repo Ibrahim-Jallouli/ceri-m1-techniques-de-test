@@ -1,6 +1,4 @@
 package fr.univavignon.pokedex.api.impl;
-
-
 import fr.univavignon.pokedex.api.IPokedex;
 import fr.univavignon.pokedex.api.IPokedexFactory;
 import fr.univavignon.pokedex.api.IPokemonFactory;
