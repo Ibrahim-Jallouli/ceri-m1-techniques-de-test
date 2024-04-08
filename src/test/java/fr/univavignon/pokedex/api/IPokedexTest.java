@@ -12,6 +12,14 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.Mockito.when;
 
+
+/**
+ * Teste les fonctionnalités clés de l'interface IPokedex en utilisant des mocks avec Mockito.
+ * Couvre les tests pour les opérations de base telles que l'ajout de Pokémon, la récupération de Pokémon par ID,
+ * la vérification de la taille du Pokédex, et l'obtention de la liste des Pokémon triés.
+ * Utilise @Mock pour créer des mocks d'IPokedex et vérifie le comportement attendu à travers divers scénarios.
+ */
+
 @ExtendWith(MockitoExtension.class) // Utilise MockitoExtension pour gérer les mocks
 public class IPokedexTest {
 

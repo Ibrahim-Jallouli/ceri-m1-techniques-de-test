@@ -9,6 +9,11 @@ import static org.mockito.Mockito.when;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
+/**
+ * Classe de test pour l'interface IPokedexFactory.
+ * Utilise Mockito pour simuler le comportement des interfaces dépendantes et vérifier
+ * la création correcte d'un objet Pokedex.
+ */
 
 @ExtendWith(MockitoExtension.class)
 public class IPokedexFactoryTest {

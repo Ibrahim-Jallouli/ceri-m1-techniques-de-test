@@ -10,6 +10,13 @@ import static org.mockito.ArgumentMatchers.anyInt;
 import static org.mockito.Mockito.when;
 import org.mockito.junit.jupiter.MockitoExtension;
 
+/**
+ * Teste les fonctionnalités de l'interface IPokemonFactory pour s'assurer que les Pokémon sont créés correctement.
+ * Ces tests incluent la vérification de l'instanciation correcte d'un Pokémon avec les paramètres attendus
+ * et s'assurent que les exceptions appropriées sont levées lorsqu'on utilise des valeurs d'index hors limites.
+ * Un test supplémentaire vérifie que les getters de l'objet Pokémon retournent les valeurs correctes.
+ */
+
 @ExtendWith(MockitoExtension.class)
 public class IPokemonFactoryTest {
     @Mock

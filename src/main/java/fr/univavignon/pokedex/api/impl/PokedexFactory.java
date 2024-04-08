@@ -4,6 +4,12 @@ import fr.univavignon.pokedex.api.IPokedexFactory;
 import fr.univavignon.pokedex.api.IPokemonFactory;
 import fr.univavignon.pokedex.api.IPokemonMetadataProvider;
 
+/**
+ * La fabrique pour créer des instances de {@link IPokedex}.
+ * Cette classe fournit une implémentation de l'interface {@link IPokedexFactory},
+ * permettant la création d'objets {@link IPokedex} configurés avec les fournisseurs
+ * de métadonnées et de fabrication de Pokémon spécifiés.
+ */
 public class PokedexFactory implements IPokedexFactory {
 
     private  IPokemonMetadataProvider metadataProvider;

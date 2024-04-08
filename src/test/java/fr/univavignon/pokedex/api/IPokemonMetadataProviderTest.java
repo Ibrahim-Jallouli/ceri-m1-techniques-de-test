@@ -9,6 +9,12 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.Mockito.when;
 
+/**
+ * Teste les fonctionnalités de l'interface IPokemonMetadataProvider pour s'assurer que les métadonnées des Pokémon
+ * sont correctement récupérées. Ces tests valident la récupération des métadonnées pour un index valide,
+ * gèrent les exceptions pour les indices invalides, et vérifient que les getters de l'objet PokemonMetadata
+ * retournent les valeurs attendues.
+ */
 
 @ExtendWith(MockitoExtension.class)
 public class IPokemonMetadataProviderTest {

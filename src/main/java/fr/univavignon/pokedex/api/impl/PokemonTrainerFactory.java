@@ -8,6 +8,12 @@ import fr.univavignon.pokedex.api.PokemonTrainer;
 import fr.univavignon.pokedex.api.Team;
 import fr.univavignon.pokedex.api.IPokedexFactory;
 
+/**
+ * Fabrique pour créer des instances de {@link PokemonTrainer}.
+ * Cette classe permet la création de dresseurs de Pokémon, assignés à une équipe spécifique et munis d'un Pokédex.
+ * Le Pokédex fourni est généré via une fabrique de Pokédex, configurée avec les fournisseurs de métadonnées et de fabrication de Pokémon spécifiés.
+ */
+
 public class PokemonTrainerFactory implements IPokemonTrainerFactory {
 
     private final IPokemonMetadataProvider metadataProvider;

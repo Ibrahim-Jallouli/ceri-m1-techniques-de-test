@@ -9,6 +9,11 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
+/**
+ * Tests pour l'interface IPokemonTrainerFactory vérifiant la création correcte des entraîneurs Pokémon.
+ * Assure que les entraîneurs sont bien créés avec les noms, les équipes et les Pokédex spécifiés,
+ * et que les getters de l'objet PokemonTrainer retournent les informations correctes.
+ */
 @ExtendWith(MockitoExtension.class)
 public class IPokemonTrainerFactoryTest {
 

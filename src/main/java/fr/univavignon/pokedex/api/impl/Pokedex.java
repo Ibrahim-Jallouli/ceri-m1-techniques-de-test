@@ -9,6 +9,12 @@ import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 
+
+/**
+ * Implémentation de l'interface IPokedex.
+ * Cette classe permet de gérer une collection de Pokémon, avec des fonctionnalités
+ * pour ajouter des Pokémon, récupérer des informations sur eux, et les lister selon différents critères.
+ */
 public class Pokedex implements IPokedex {
 
     private  List<Pokemon> pokemons = new ArrayList<>();

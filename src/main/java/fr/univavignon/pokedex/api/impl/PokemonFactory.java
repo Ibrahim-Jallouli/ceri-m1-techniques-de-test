@@ -2,6 +2,11 @@ package fr.univavignon.pokedex.api.impl;
 import fr.univavignon.pokedex.api.IPokemonFactory;
 import fr.univavignon.pokedex.api.Pokemon;
 
+/**
+ * Implémentation de l'interface {@link IPokemonFactory} pour créer des instances de {@link Pokemon}.
+ * Cette fabrique génère de nouveaux Pokémon.
+ */
+
 public class PokemonFactory implements IPokemonFactory {
 
     @Override

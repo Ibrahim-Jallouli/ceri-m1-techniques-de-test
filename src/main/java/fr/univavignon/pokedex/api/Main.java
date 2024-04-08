@@ -6,6 +6,9 @@ import fr.univavignon.pokedex.api.impl.PokemonFactory;
 import fr.univavignon.pokedex.api.impl.PokemonMetadataProvider;
 import fr.univavignon.pokedex.api.impl.PokemonTrainerFactory;
 
+/**
+ * Classe principale pour tester les différentes fonctionnalités du Pokédex.
+ */
 public class Main {
 
     public static void main(String[] args) {
