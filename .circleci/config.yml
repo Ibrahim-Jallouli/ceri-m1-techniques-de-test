@@ -23,6 +23,13 @@ jobs:
             mvn clean verify
             mvn jacoco:report
 
+      # Run Checkstyle
+      - run:
+          name: Run Checkstyle
+          command: |
+            wget https://github.com/checkstyle/checkstyle/releases/download/checkstyle-8.44/checkstyle-8.44-all.jar
+            java -jar checkstyle-8.44-all.jar -c checkstyle.xml src/
+
       # Upload coverage report to Codecov
       - codecov/upload:
           token: $CODECOV_TOKEN
