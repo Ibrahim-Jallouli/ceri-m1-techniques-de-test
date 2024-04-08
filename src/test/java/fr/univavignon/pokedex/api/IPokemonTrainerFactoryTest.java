@@ -1,5 +1,6 @@
 package fr.univavignon.pokedex.api;
 
+import fr.univavignon.pokedex.api.impl.PokemonTrainerFactory;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
@@ -17,14 +18,18 @@ import static org.mockito.Mockito.when;
 @ExtendWith(MockitoExtension.class)
 public class IPokemonTrainerFactoryTest {
 
-    @Mock
-    private IPokemonTrainerFactory trainerFactory;
+
+
 
     @Mock
     private IPokedexFactory pokedexFactory;
     @Mock
     private IPokedex pokedexMock;
 
+    @Mock
+    private IPokemonMetadataProvider metadataProvider;
+
+    private IPokemonTrainerFactory trainerFactory= new PokemonTrainerFactory( metadataProvider, pokedexMock);
     @Test
     void testCreateTrainer() {
         String name = "Darius";

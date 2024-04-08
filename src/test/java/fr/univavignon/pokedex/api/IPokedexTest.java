@@ -1,5 +1,6 @@
 package fr.univavignon.pokedex.api;
 
+import fr.univavignon.pokedex.api.impl.Pokedex;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
@@ -23,9 +24,13 @@ import static org.mockito.Mockito.when;
 @ExtendWith(MockitoExtension.class) // Utilise MockitoExtension pour gérer les mocks
 public class IPokedexTest {
 
-    // Utilisez @Mock pour initialiser automatiquement les mocks
     @Mock
-    private IPokedex pokedex;
+    IPokemonMetadataProvider metadataProvider;
+
+    @Mock
+    IPokemonFactory pokemonFactory;
+
+    private IPokedex pokedex = new Pokedex(metadataProvider, pokemonFactory);
 
     @Test
     public void testSize() {

@@ -1,5 +1,6 @@
 package fr.univavignon.pokedex.api;
 
+import fr.univavignon.pokedex.api.impl.Pokedex;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.junit.jupiter.MockitoExtension;
@@ -23,7 +24,7 @@ public class IPokedexFactoryTest {
         // Creation des mocks
         IPokemonMetadataProvider metadataProvider = mock(IPokemonMetadataProvider.class);
         IPokemonFactory pokemonFactory = mock(IPokemonFactory.class);
-        IPokedex pokedex = mock(IPokedex.class);
+        IPokedex pokedex = new Pokedex(metadataProvider, pokemonFactory);
 
         IPokedexFactory pokedexFactory = mock(IPokedexFactory.class);
 

@@ -1,5 +1,6 @@
 package fr.univavignon.pokedex.api;
 
+import fr.univavignon.pokedex.api.impl.PokemonMetadataProvider;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
@@ -19,8 +20,8 @@ import static org.mockito.Mockito.when;
 @ExtendWith(MockitoExtension.class)
 public class IPokemonMetadataProviderTest {
 
-    @Mock
-    IPokemonMetadataProvider pokemonMetadataProvider;
+
+    IPokemonMetadataProvider pokemonMetadataProvider= new PokemonMetadataProvider();
 
     @Test
     public void testGetPokemonMetadata() throws PokedexException {

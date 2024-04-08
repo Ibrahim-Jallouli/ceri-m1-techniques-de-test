@@ -1,5 +1,6 @@
 package fr.univavignon.pokedex.api;
 
+import fr.univavignon.pokedex.api.impl.PokemonFactory;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
@@ -19,8 +20,8 @@ import org.mockito.junit.jupiter.MockitoExtension;
 
 @ExtendWith(MockitoExtension.class)
 public class IPokemonFactoryTest {
-    @Mock
-    IPokemonFactory pokemonFactory;
+
+    IPokemonFactory pokemonFactory = new PokemonFactory();
 
     @Test
     public void testCreatePokemon() {
