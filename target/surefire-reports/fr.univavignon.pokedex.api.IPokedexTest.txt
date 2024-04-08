@@ -1,0 +1,31 @@
+-------------------------------------------------------------------------------
+Test set: fr.univavignon.pokedex.api.IPokedexTest
+-------------------------------------------------------------------------------
+Tests run: 2, Failures: 2, Errors: 0, Skipped: 0, Time elapsed: 0.018 sec <<< FAILURE!
+fr.univavignon.pokedex.api.IPokedexTest.testSize()  Time elapsed: 0.018 sec  <<< FAILURE!
+org.mockito.exceptions.misusing.WrongTypeOfReturnValue: 
+Integer cannot be returned by createPokedex()
+createPokedex() should return IPokedex
+***
+If you're unsure why you're getting above error read on.
+Due to the nature of the syntax above problem might occur because:
+1. This exception *might* occur in wrongly written multi-threaded tests.
+   Please refer to Mockito FAQ on limitations of concurrency testing.
+2. A spy is stubbed using when(spy.foo()).then() syntax. It is safer to stub spies - 
+   - with doReturn|Throw() family of methods. More in javadocs for Mockito.spy() method.
+
+	at fr.univavignon.pokedex.api.IPokedexTest.testSize(IPokedexTest.java:41)
+
+fr.univavignon.pokedex.api.IPokedexTest.testAddPokemon()  Time elapsed: 0 sec  <<< FAILURE!
+org.mockito.exceptions.misusing.MissingMethodInvocationException: 
+when() requires an argument which has to be 'a method call on a mock'.
+For example:
+    when(mock.getArticles()).thenReturn(articles);
+Also, this error might show up because:
+1. you stub either of: final/private/equals()/hashCode() methods.
+   Those methods *cannot* be stubbed/verified.
+   Mocking methods declared on non-public parent classes is not supported.
+2. inside when() you don't call method on mock but on some other object.
+
+	at fr.univavignon.pokedex.api.IPokedexTest.testAddPokemon(IPokedexTest.java:54)
+

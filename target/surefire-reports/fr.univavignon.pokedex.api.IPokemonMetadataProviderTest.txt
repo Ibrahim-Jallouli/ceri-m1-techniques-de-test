@@ -1,0 +1,14 @@
+-------------------------------------------------------------------------------
+Test set: fr.univavignon.pokedex.api.IPokemonMetadataProviderTest
+-------------------------------------------------------------------------------
+Tests run: 3, Failures: 2, Errors: 0, Skipped: 0, Time elapsed: 0 sec <<< FAILURE!
+fr.univavignon.pokedex.api.IPokemonMetadataProviderTest.testGetPokemonMetadataWithInvalidIndex()  Time elapsed: 0 sec  <<< FAILURE!
+fr.univavignon.pokedex.api.PokedexException: Invalid Pokémon index: -1
+	at fr.univavignon.pokedex.api.impl.PokemonMetadataProvider.getPokemonMetadata(PokemonMetadataProvider.java:26)
+	at fr.univavignon.pokedex.api.IPokemonMetadataProviderTest.testGetPokemonMetadataWithInvalidIndex(IPokemonMetadataProviderTest.java:42)
+
+fr.univavignon.pokedex.api.IPokemonMetadataProviderTest.testGetPokemonMetadata()  Time elapsed: 0 sec  <<< FAILURE!
+fr.univavignon.pokedex.api.PokedexException: Invalid Pokémon index: 1
+	at fr.univavignon.pokedex.api.impl.PokemonMetadataProvider.getPokemonMetadata(PokemonMetadataProvider.java:26)
+	at fr.univavignon.pokedex.api.IPokemonMetadataProviderTest.testGetPokemonMetadata(IPokemonMetadataProviderTest.java:31)
+
